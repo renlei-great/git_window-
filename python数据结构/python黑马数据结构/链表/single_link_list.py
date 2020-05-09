@@ -124,16 +124,83 @@ class SingleLinkList(BaseLinkList):
             count += 1
         return False
 
+    def reverse_index(self, index):
+        """查看倒数第index 的数是什么"""
+        try:
+            if self.is_empty():
+                return None
+
+            le = self.length()
+            n = le - index
+            if n >= 0:
+                cur = self.head
+                for i in range(n):
+                    cur = cur.next
+                return cur.item
+            else:
+                return None
+        except AttributeError:
+            return None
+
+    def reverse_star_end(self):
+        """反转第一个和最后一个节点"""
+        if self.head and self.head.next:
+            cur_p = self.head
+            cur_n = self.head.next
+            # 找到前一个和最后一个节点
+            while cur_n.next:
+                cur_p = cur_n
+                cur_n = cur_n.next
+
+            if self.length() == 2:
+                cur_p.next = None
+                cur_n.next = cur_p
+                self.head = cur_n
+            else:
+                cur_n.next = self.head.next
+                cur_p.next = self.head
+                self.head.next = None
+                self.head = cur_n
+        else:
+            pass
+
+    def reverse(self):
+        """反转列表
+        单链表反转的思想：
+            1. 创建一个新列表
+            2. 从旧链表中依次往出取数据
+            3. 然后将这个数据每次都插入到新列表的头部
+            4. 反转完成
+        """
+        if self.head.next is None:
+            return
+
+        cur = self.head
+        ll = SingleLinkList()
+        while True:
+            cur = self.head
+            if cur is None:
+               break
+            ll.add(self.head.item)
+            self.head = self.head.next
+        self.head = ll.head
+
 
 if __name__ == "__main__":
     ll = SingleLinkList()
     ll.append(1)
-    ll.append(1)
-    ll.append(1)
     ll.append(2)
-    ll.append(1)
-    ll.append(2)
+    ll.append(3)
+    # ll.append(4)
+    # ll.append(5)
+    # ll.append(6)
     # ll.head.next = ll.head
     # ll.head.next.next.next.next = ll.head.next
-    print(ll.is_loop())
+    print(ll.reverse_index(1))
+    # ll.reverse_star_end()
+    ll.travel()
+    ll.reverse()
+    ll.travel()
+    # print(ll.reverse_index(1))
+    # print(ll.is_loop())
 
