@@ -4,7 +4,7 @@ class BaseLinkList(object):
 
     def is_empty(self):
         """链表是否为空"""
-        return self.head == None
+        return self.head is None
 
     def length(self):
         """链表长度"""
@@ -185,22 +185,80 @@ class SingleLinkList(BaseLinkList):
             self.head = self.head.next
         self.head = ll.head
 
+    def reverse_print(self):
+        """反向输出"""
+
+        if self.head is None:
+            return
+
+        cur = self.head
+        stack = list()
+        while cur is not None:
+            """遍历每个节点，压入在中，这里用列表实现栈的功能"""
+            stack.insert(0, cur.item)
+            cur = cur.next
+
+        for item in stack:
+            print(item, end=" ")
+
+    def pop(self):
+        """弹出头结点位置的元素"""
+        if self.head is None:
+            return None
+
+        ret = self.head.item
+        self.head = self.head.next
+        return ret
+
+def merge_single(l1:SingleLinkList, l2:SingleLinkList):
+    """合并两个有序集合"""
+    if l1.is_empty() and l2.is_empty():
+        """对两个链表进行判空"""
+        return
+
+    new_l = SingleLinkList()
+    l1_val = l1.pop()
+    l2_val = l2.pop()
+    while l1_val is not None and l2_val is not None:
+        if int(l1_val) <= int(l2_val):
+            new_l.append(l1_val)
+            l1_val = l1.pop()
+        else:
+            new_l.append(l2_val)
+            l2_val = l2.pop()
+    if not l1.is_empty():
+        l1_val = l1.pop()
+        while l1_val is not None:
+            new_l.append(l1_val)
+            l1_val = l1.pop()
+    elif not l2.is_empty():
+        l2_val = l2.pop()
+        while l2_val is not None:
+            new_l.append(l2_val)
+            l2_val = l2.pop()
+    return new_l
+
 
 if __name__ == "__main__":
-    ll = SingleLinkList()
-    ll.append(1)
-    ll.append(2)
-    ll.append(3)
-    # ll.append(4)
-    # ll.append(5)
-    # ll.append(6)
-    # ll.head.next = ll.head
-    # ll.head.next.next.next.next = ll.head.next
-    print(ll.reverse_index(1))
-    # ll.reverse_star_end()
-    ll.travel()
-    ll.reverse()
-    ll.travel()
-    # print(ll.reverse_index(1))
-    # print(ll.is_loop())
+    l1 = SingleLinkList()
+    l1.append(1)
+    l1.append(5)
+    l1.append(9)
+    l1.append(15)
+    l1.append(26)
+    l1.append(32)
+
+    l2 = SingleLinkList()
+    l2.append(2)
+    l2.append(7)
+    l2.append(16)
+    l2.append(17)
+    l2.append(21)
+    l2.append(34)
+    new_l = merge_single(l1, l2)
+    new_l.travel()
+
+
+
+
 
