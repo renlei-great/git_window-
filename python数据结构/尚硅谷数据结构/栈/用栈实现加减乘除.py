@@ -1,5 +1,7 @@
 from python数据结构.尚硅谷数据结构.栈.stack import Stack
 
+"""重点学习栈的使用，利用栈的后进先出实现对字符串数值的计算"""
+
 # 32+6-5+2
 def ex_expression(str_num):
     # 定义两个栈，一个数栈，一个符号栈
