@@ -47,7 +47,7 @@ def ex_expression(str_num):
 
 
 if __name__ == "__main__":
-    jg = ex_expression('32+6*6-363+2*6/2-6*9*9')
+    jg = ex_expression('9-7*1*1-1')
     print(jg)
 
 
