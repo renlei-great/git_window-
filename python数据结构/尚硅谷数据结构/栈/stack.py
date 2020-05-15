@@ -3,7 +3,9 @@ from python数据结构.python黑马数据结构.链表.single_link_list import 
 
 class Stack:
     """链表实现栈"""
-    def __init__(self):
+    def __init__(self, max_len=None):
+        if max_len is None:
+            self.__max_len = 5
         self.__max_len = 5
         self.__top = -1
         self.__stack = SingleLinkList()
@@ -28,9 +30,12 @@ class Stack:
         if self.__top == -1:
             print('栈空')
         else:
-            print(self.__stack.pop())
+            # print(self.__stack.pop())
             self.__top -= 1
+            return self.__stack.pop()
 
+    def is_empty(self):
+        return self.__top == -1
 
 def exit_i():
     """退出功能"""

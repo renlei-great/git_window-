@@ -210,6 +210,14 @@ class SingleLinkList(BaseLinkList):
         self.head = self.head.next
         return ret
 
+    def p_pop(self):
+        if self.head is None:
+            return None
+
+        ret = self.head.item
+        return ret
+
+
 def merge_single(l1:SingleLinkList, l2:SingleLinkList):
     """合并两个有序集合"""
     if l1.is_empty() and l2.is_empty():
