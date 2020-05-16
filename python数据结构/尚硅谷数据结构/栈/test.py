@@ -16,6 +16,7 @@
 # print(type)
 # a = 1 + 2
 
+
 class A:
 
     @staticmethod
