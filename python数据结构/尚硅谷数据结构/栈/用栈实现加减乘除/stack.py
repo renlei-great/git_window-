@@ -6,7 +6,8 @@ class Stack:
     def __init__(self, max_len=None):
         if max_len is None:
             self.__max_len = 5
-        self.__max_len = 5
+        else:
+            self.__max_len = max_len
         self.__top = -1
         self.__stack = SingleLinkList()
 
