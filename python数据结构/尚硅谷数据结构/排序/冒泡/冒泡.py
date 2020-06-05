@@ -1,7 +1,7 @@
 import datetime, random
 import time
 # lista = [12, 4, 5, 6, 22, 3, 43, 654, 765, 7, 234]
-lista = [random.randint(0,200) for i in range(80000)]
+lista = [random.randint(0,200) for i in range(8000)]
 
 
 def bubbing_sort(alist):
