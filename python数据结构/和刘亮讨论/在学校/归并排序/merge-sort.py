@@ -1,6 +1,6 @@
-alist = [12, 4, 5, 6, 22, 3, 43, 654, 765, 7, 234]
-# import random, time
-# alist = [random.randint(0,200) for i in range(80000)]
+# alist = [12, 4, 5, 6, 22, 3, 43, 654, 765, 7, 234]
+import random, time
+alist = [random.randint(0,200) for i in range(800000)]
 
 
 def merge_sort(alist):
@@ -39,8 +39,19 @@ def merge_sort(alist):
     return tmpe_list
 
 
+n = len(alist)
+time_start = time.time()
+# print(lista)
 aalist = merge_sort(alist)
-print(aalist)
+# print(lista)
+end_time = time.time()
+time_z = end_time - time_start
+print('总耗时：', end=' ')
+print(time_z)
+# print(aalist)
+
+# aalist = merge_sort(alist)
+# print(aalist)
 
 
 
