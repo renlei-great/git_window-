@@ -16,9 +16,6 @@ def quick_sort(alist, start, end):
 
     while r_cur > l_cur:
         # 判断右边
-
-
-
         while alist[r_cur] >= mid and r_cur > l_cur:
             a = alist[r_cur]
             r_cur -= 1
