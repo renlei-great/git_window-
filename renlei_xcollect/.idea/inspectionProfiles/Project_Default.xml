@@ -1,0 +1,12 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="python数据结构.python黑马数据结构.链表.double_link_list.single" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
