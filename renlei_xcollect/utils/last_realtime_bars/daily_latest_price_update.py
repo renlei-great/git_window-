@@ -379,7 +379,7 @@ def update_a_last_all_price(conn, price_dict):
 def run():
     start = datetime.datetime.now()
     # a_last_all_price_func('update')
-    brief_last_all_price_func('insert')
+    brief_last_all_price_func('update')
     end = datetime.datetime.now()
     print(end - start)
 

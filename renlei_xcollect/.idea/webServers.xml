@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2b7238f4-2321-4627-9bf0-aa768ed92248" name="xcollect" url="http://175.25.50.117:12842">
+        <fileTransfer accessType="SFTP" host="175.25.50.117" port="12842" sshConfigId="0cd5afe9-01d3-4448-901a-aa581c26c92f" sshConfig="root@175.25.50.117:12842 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

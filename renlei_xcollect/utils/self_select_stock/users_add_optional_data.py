@@ -81,7 +81,7 @@ def processing_users_data(user):
     for optional in user[-1]:
         user_optional = optional.split('|')
         assets_id = user_optional[0]
-        old_price = user_optional[3]
+        old_price = user_optional[4]
 
         # 获取这只股票的最新数据
         sql = "select * from realtime_bars where assets_id='%s'" %(assets_id)
@@ -98,10 +98,10 @@ def processing_users_data(user):
         # 入选到现在的涨跌幅
         old_current_price_limit = float(current_price) / float(old_price) - 1
         # 组织新的optional数据
-        optional = "%s|%s|%s|%s|%s|%s|%s" % (user_optional[0], user_optional[1],
-                                             user_optional[2], user_optional[3],
-                                             current_price_limit, current_price,
-                                             old_current_price_limit)
+        optional = "%s|%s|%s|%s|%s|%s|%s|%s" % (user_optional[0], user_optional[1],
+                                              user_optional[2], user_optional[3],
+                                              user_optional[4],current_price_limit,
+                                              current_price,old_current_price_limit)
 
         # 把当前这一条自选股放入到列表中
         update_optional_list.append(optional)

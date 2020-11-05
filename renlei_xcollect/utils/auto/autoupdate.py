@@ -30,8 +30,25 @@ def auto_update(func, day=0, hour=0, minute=0, appoint_hour='00'):
         next_time = now_time + datetime.timedelta(minutes=minute)
         next_hour = next_time.hour
         next_minute = next_time.minute
+        # 判断下次执行时间是否在9:30 - 15:00 之间
+        if next_hour == 9:
+            if next_minute < 30:
+                next_minute = 30
+        #  如果小时小于9:30 将小时调节为当天的9:00
+        elif next_hour < 9:
+            next_hour, next_minute = 9, 30
+        #  如果小时大于了15:00 将day加1 将开始时间调为9:30
+        elif next_hour > 15:
+            next_hour, next_minute = 9, 30
+            next_time = next_time + datetime.timedelta(days=1)
     else:
         raise ValueError('请给day,hour,minute其中一个参数赋值，只可以赋值一个参数')
+
+    # 判断是否是礼拜天,如果是就跳过
+    if next_time.weekday() == 5:
+        next_time = next_time + datetime.timedelta(days=2)
+    elif next_time.weekday() == 6:
+        next_time = next_time + datetime.timedelta(days=1)
 
     next_year = next_time.date().year
     next_month = next_time.date().month
@@ -69,7 +86,7 @@ def auto_update(func, day=0, hour=0, minute=0, appoint_hour='00'):
 # @auto_update_decorator(minute=1)
 def test():
     print('我是测试函数')
-    auto_update(func=test, minute=1)
+    auto_update(func=test, minute=5)
 
 
 if __name__ == "__main__":

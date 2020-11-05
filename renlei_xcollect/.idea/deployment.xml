@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData">
+  <component name="PublishConfigData" autoUpload="Always" serverName="root@175.25.50.117:12842 password">
     <serverData>
       <paths name="root@175.25.50.117:12842">
         <serverdata>
@@ -9,6 +9,35 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="root@175.25.50.117:12842 (3)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/renlei_xcollect" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="root@175.25.50.117:12842 (4)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/renlei_xcollect" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="root@175.25.50.117:12842 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root/renlei/renlei_xcollect" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="xcollect">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root/renlei/renlei_xcollect" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
     </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
